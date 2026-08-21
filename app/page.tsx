@@ -25,12 +25,18 @@ export default function Home() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex items-center gap-1.5 bg-zinc-800/80 p-1.5 rounded-xl text-sm font-semibold border border-zinc-700/50">
+          <nav className="flex items-center gap-1.5 bg-zinc-800/80 p-1.5 rounded-xl text-sm font-semibold border border-zinc-700/50 flex-wrap">
             <button
               onClick={() => setActiveTab('home')}
               className={activeTab === 'home' ? activeStyle : inactiveStyle}
             >
               Home
+            </button>
+            <button
+              onClick={() => setActiveTab('amenities')}
+              className={activeTab === 'amenities' ? activeStyle : inactiveStyle}
+            >
+              Services & Amenities
             </button>
             <button
               onClick={() => setActiveTab('routines')}
@@ -76,9 +82,9 @@ export default function Home() {
                 <p className="text-zinc-300 text-base md:text-lg">
                   Providing calm, structured spaces for memory care routines, daily schedules, family updates, and dedicated caregiver tools.
                 </p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <button onClick={() => setActiveTab('routines')} className="bg-amber-600 text-zinc-950 font-bold px-5 py-3 rounded-xl shadow hover:bg-amber-500 transition">
-                    View Schedule</button>
+                <div className="pt-2 flex flex-wrap gap-3"><button onClick={() => setActiveTab('amenities')} className="bg-amber-600 text-zinc-950 font-bold px-5 py-3 rounded-xl shadow hover:bg-amber-500 transition">
+                    Explore Amenities
+                  </button>
                   <button onClick={() => setActiveTab('caregivers')} className="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-5 py-3 rounded-xl border border-zinc-700 transition">
                     Caregiver Access
                   </button>
@@ -103,6 +109,52 @@ export default function Home() {
                 <p className="text-sm text-zinc-400">Direct notes and logs for family members and health aides.</p>
               </div>
             </section>
+          </div>
+        )}
+
+        {/* SERVICES & AMENITIES SECTION */}
+        {activeTab === 'amenities' && (
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-black text-zinc-100">Services & Facility Amenities</h2>
+              <p className="text-sm text-zinc-400">Comprehensive care services tailored for memory support, comfort, and safety.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🏥</div>
+                <h3 className="text-xl font-bold text-amber-500">24/7 Professional Supervision</h3>
+                <p className="text-sm text-zinc-400">Round-the-clock trained caregivers and emergency response staff on-site continuously.</p>
+              </div>
+
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">💊</div>
+                <h3 className="text-xl font-bold text-amber-500">Medication Management</h3>
+                <p className="text-sm text-zinc-400">Timely dosage tracking, prescription renewals, and strict adherence logs.</p>
+              </div>
+
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🥗</div>
+                <h3 className="text-xl font-bold text-amber-500">Nutritional Dining</h3>
+                <p className="text-sm text-zinc-400">Chef-prepared healthy meals and custom dietary plans tailored for cognitive health.</p>
+              </div>
+
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🧩</div>
+                <h3 className="text-xl font-bold text-amber-500">Memory Engagement Therapy</h3>
+                <p className="text-sm text-zinc-400">Daily cognitive exercises, art therapy, and music stimulation programs.</p>
+              </div><div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🌿</div>
+                <h3 className="text-xl font-bold text-amber-500">Secure Courtyard & Garden</h3>
+                <p className="text-sm text-zinc-400">Safe, enclosed outdoor walking paths and serene garden spaces.</p>
+              </div>
+
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🚗</div>
+                <h3 className="text-xl font-bold text-amber-500">Transportation & Outings</h3>
+                <p className="text-sm text-zinc-400">Scheduled local transport for medical appointments and community excursions.</p>
+              </div>
+            </div>
           </div>
         )}
 
@@ -139,7 +191,8 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-zinc-100">Active Reminders</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-amber-950/40 border border-amber-800/60 p-6 rounded-2xl space-y-2">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Priority Alert</span><h3 className="font-bold text-amber-200 text-lg">Afternoon Medication</h3>
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Priority Alert</span>
+                <h3 className="font-bold text-amber-200 text-lg">Afternoon Medication</h3>
                 <p className="text-xs text-amber-300/80">Scheduled for 2:00 PM. Take with full glass of water.</p>
               </div>
               <div className="bg-emerald-950/40 border border-emerald-800/60 p-6 rounded-2xl space-y-2">
@@ -152,8 +205,7 @@ export default function Home() {
         )}
 
         {/* CAREGIVERS SECTION */}
-        {activeTab === 'caregivers' && (
-          <div className="space-y-6">
+        {activeTab === 'caregivers' && (<div className="space-y-6">
             <h2 className="text-2xl font-bold text-zinc-100">Caregiver Support Hub</h2>
             <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 shadow-sm space-y-4">
               <h3 className="font-bold text-zinc-200">Caregiver Notes and Shift Logs</h3>
