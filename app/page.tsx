@@ -56,17 +56,28 @@ export default function Home() {
         {/* HOME SECTION */}
         {activeTab === 'home' && (
           <div className="space-y-12">
-            {/* Banner Section */}
-            <section className="bg-gradient-to-br from-zinc-900 via-zinc-900 to-stone-900 border border-zinc-800 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
-              <div className="max-w-2xl space-y-4">
-                <span className="bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-amber-500/30">
+            {/* Banner Section with Background Image */}
+            <section className="relative overflow-hidden border border-zinc-800 rounded-3xl p-8 md:p-12 text-white shadow-2xl bg-zinc-900">
+              {/* Background Image & Gradient Overlay */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1600&q=80" 
+                  alt="Memory Guard Support Facility" 
+                  className="w-full h-full object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent"></div>
+              </div>
+
+              {/* Banner Content */}
+              <div className="relative z-10 max-w-2xl space-y-4"><span className="bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-amber-500/30">
                   Memory Care Portal
                 </span>
                 <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-zinc-50">
                   Welcome to Memory Guard Support Portal
                 </h1>
                 <p className="text-zinc-300 text-base md:text-lg">
-                  Providing calm, structured spaces for memory care routines, daily schedules, family updates, and dedicated caregiver tools.</p>
+                  Providing calm, structured spaces for memory care routines, daily schedules, family updates, and dedicated caregiver tools.
+                </p>
                 <div className="pt-2 flex flex-wrap gap-3">
                   <button onClick={() => setActiveTab('amenities')} className="bg-amber-600 text-zinc-950 font-bold px-5 py-3 rounded-xl shadow hover:bg-amber-500 transition">Explore Amenities</button>
                   <button onClick={() => setActiveTab('caregivers')} className="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-5 py-3 rounded-xl border border-zinc-700 transition">Caregiver Access</button>
@@ -76,12 +87,12 @@ export default function Home() {
 
             {/* IMAGE GALLERY CARDS */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Card 1: Garden Walk */}
+              {/* Card 1 */}
               <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-lg hover:border-amber-500/50 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" 
-                    alt="Outdoor Garden & Recreation" 
+                    alt="Outdoor Courtyard" 
                     className="w-full h-full object-cover hover:scale-105 transition duration-300"
                   />
                 </div>
@@ -91,7 +102,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Card 2: Specialized Activity Programs */}
+              {/* Card 2 */}
               <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-lg hover:border-amber-500/50 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -106,12 +117,12 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Card 3: Medication Management */}
+              {/* Card 3 */}
               <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-lg hover:border-amber-500/50 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" 
-                    alt="Nurse Managing Medication" 
+                    alt="Nurse Care & Medication" 
                     className="w-full h-full object-cover hover:scale-105 transition duration-300"
                   />
                 </div>
@@ -122,14 +133,13 @@ export default function Home() {
               </div>
             </section>
           </div>
-        )}
-
-        {/* SERVICES & AMENITIES SECTION */}
+        )}{/* SERVICES & AMENITIES SECTION */}
         {activeTab === 'amenities' && (
           <div className="space-y-8">
             <h2 className="text-3xl font-black text-zinc-100">Services & Facility Amenities</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3"><div className="text-3xl">🏥</div>
+              <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <div className="text-3xl">🏥</div>
                 <h3 className="text-xl font-bold text-amber-500">24/7 Professional Supervision</h3>
                 <p className="text-sm text-zinc-400">Round-the-clock trained caregivers and emergency response staff on-site continuously.</p>
               </div>
@@ -186,8 +196,7 @@ export default function Home() {
               <h3 className="font-bold text-zinc-200">Caregiver Notes and Shift Logs</h3>
               <textarea
                 value={noteText}
-                onChange={(e) => setNoteText(e.target.value)}
-                className="w-full p-4 bg-zinc-950 border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none text-zinc-100 placeholder-zinc-500"
+                onChange={(e) => setNoteText(e.target.value)}className="w-full p-4 bg-zinc-950 border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none text-zinc-100 placeholder-zinc-500"
                 rows={4}
                 placeholder="Type daily caregiver observation notes here..."
               ></textarea>
@@ -196,7 +205,9 @@ export default function Home() {
                 className="bg-amber-600 text-zinc-950 font-bold px-4 py-2 rounded-xl text-sm hover:bg-amber-500 transition"
               >
                 Save Daily Log
-              </button>{savedNotes.length > 0 && (
+              </button>
+
+              {savedNotes.length > 0 && (
                 <div className="pt-6 border-t border-zinc-800 space-y-3">
                   <h4 className="font-bold text-sm text-amber-500">Saved Shift Logs ({savedNotes.length})</h4>
                   <div className="space-y-2 max-h-60 overflow-y-auto">
