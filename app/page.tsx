@@ -56,9 +56,8 @@ export default function Home() {
         {/* HOME SECTION */}
         {activeTab === 'home' && (
           <div className="space-y-12">
-            {/* Banner Section with Bright Background Image */}
+            {/* Banner Section */}
             <section className="relative overflow-hidden border border-amber-200/80 rounded-3xl p-8 md:p-12 shadow-xl bg-amber-900 text-white">
-              {/* Background Image & Gradient Overlay */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1600&q=80" 
@@ -68,9 +67,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-950/90 via-amber-900/80 to-transparent"></div>
               </div>
 
-              {/* Banner Content */}
-              <div className="relative z-10 max-w-2xl space-y-4"><span className="bg-amber-400 text-amber-950 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
-                  Memory Care Portal
+              <div className="relative z-10 max-w-2xl space-y-4">
+                <span className="bg-amber-400 text-amber-950 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">Memory Care Portal
                 </span>
                 <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
                   Welcome to Memory Guard Support Portal
@@ -87,7 +85,6 @@ export default function Home() {
 
             {/* IMAGE GALLERY CARDS */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Card 1: Outdoor Courtyard */}
               <div className="bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md hover:border-amber-400 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -102,7 +99,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Card 2: Specialized Activity Programs */}
               <div className="bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md hover:border-amber-400 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -117,7 +113,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Card 3: Nurse Care & Medication */}
               <div className="bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md hover:border-amber-400 transition">
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -127,14 +122,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-5 space-y-2">
-                  <h3 className="text-lg font-bold text-zinc-900">Nurse Care & Medication</h3><p className="text-xs text-zinc-600">24/7 dedicated nursing staff managing healthcare needs and daily adherence.</p>
+                  <h3 className="text-lg font-bold text-zinc-900">Nurse Care & Medication</h3>
+                  <p className="text-xs text-zinc-600">24/7 dedicated nursing staff managing healthcare needs and daily adherence.</p>
                 </div>
               </div>
             </section>
           </div>
-        )}
-
-        {/* SERVICES & AMENITIES SECTION */}
+        )}{/* SERVICES & AMENITIES SECTION */}
         {activeTab === 'amenities' && (
           <div className="space-y-8">
             <h2 className="text-3xl font-black text-zinc-900">Services & Facility Amenities</h2>
@@ -193,7 +187,23 @@ export default function Home() {
         {activeTab === 'caregivers' && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-zinc-900">Caregiver Support Hub</h2>
-            <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm space-y-4"><h3 className="font-bold text-zinc-800">Caregiver Notes and Shift Logs</h3>
+            
+            {/* Dedicated Caregiver Image Banner */}
+            <div className="relative h-56 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1581579438747-1dc8d1e05fec?auto=format&fit=crop&w=1200&q=80"alt="Caregiver Support Assistance" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent flex items-end p-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white">Dedicated Caregiver Support</h3>
+                  <p className="text-xs text-zinc-200">Recording shift updates, medication logs, and daily resident observations.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm space-y-4">
+              <h3 className="font-bold text-zinc-800">Caregiver Notes and Shift Logs</h3>
               <textarea
                 value={noteText}
                 onChange={(e) => setNoteText(e.target.value)}
